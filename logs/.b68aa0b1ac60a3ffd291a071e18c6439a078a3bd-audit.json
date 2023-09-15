@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 3
+    },
+    "auditLog": "/home/phongnq/Documents/NodeJs/node-base-ts/logs/.b68aa0b1ac60a3ffd291a071e18c6439a078a3bd-audit.json",
+    "files": [
+        {
+            "date": 1694745922297,
+            "name": "/home/phongnq/Documents/NodeJs/node-base-ts/logs/logs-2023-09-15.log",
+            "hash": "d66f26cc3dda5fcd5a2a18a91c56e5ea8a0bf634e6f4471ee8f33914b18a0d6e"
+        }
+    ],
+    "hashType": "sha256"
+}
