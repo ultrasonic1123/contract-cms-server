@@ -1,6 +1,8 @@
 import { DataSource } from 'typeorm'
 import { envConfig } from './env.config'
 
+console.log(__dirname)
+
 export const Connection = new DataSource({
   type: 'postgres',
   host: envConfig.DB_HOST,
@@ -9,8 +11,16 @@ export const Connection = new DataSource({
   password: envConfig.DB_PASSWORD,
   database: envConfig.DB_DATABASE,
   synchronize: true,
-  logging: true,
+  logging: false,
   entities: ['src/**/*.entity{.ts,.js}'],
   subscribers: [],
   migrations: []
 })
+
+export const createConnection = () => {
+  Connection.initialize()
+    .then(() => console.log('Khoi tao thanh cong'))
+    .catch((e) => {
+      console.log('Khoi tao that bai')
+    })
+}

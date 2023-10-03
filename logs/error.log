@@ -1,0 +1,14 @@
+2023-09-18 08:48:35:4835 error: Something went wrong
+2023-09-18 08:50:16:5016 error: [object Object] message
+2023-09-18 08:50:38:5038 error: undefined message
+2023-09-18 08:51:31:5131 error:  message
+2023-09-18 08:52:21:5221 error: / -> message
+2023-09-18 08:52:52:5252 error: Error
+2023-09-18 08:53:16:5316 error: Error
+2023-09-18 08:53:48:5348 error: Error
+2023-09-18 08:54:38:5438 error: aksk
+2023-10-03 21:11:15:1115 error: Cannot read properties of undefined (reading 'service')
+2023-10-03 21:12:26:1226 error: Cannot read properties of undefined (reading 'service')
+2023-10-03 21:12:27:1227 error: Cannot read properties of undefined (reading 'service')
+2023-10-03 21:13:03:133 error: Cannot read properties of undefined (reading 'service')
+2023-10-03 21:34:17:3417 error: Cannot read properties of undefined (reading 'userService')

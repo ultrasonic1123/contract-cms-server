@@ -10,6 +10,7 @@ import routes from './routes/router'
 import logger from '@/configs/logger.config'
 import { envConfig } from './configs/env.config'
 import exceptionFilter from './middlewares/exception.filter'
+import { createConnection } from './configs/db.config'
 
 const app: Express = express()
 const port = envConfig.PORT || 3000
@@ -26,6 +27,8 @@ app.use(bodyParser.urlencoded({ limit: '50mb', extended: false }))
 app.use(morganMiddleware)
 app.use('/api', routes)
 app.use(exceptionFilter)
+
+createConnection()
 
 app.listen(port, () => {
   logger.info(`⚡️[server]: Server is running at http://localhost:${port}`)
