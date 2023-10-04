@@ -14,13 +14,14 @@ export const Connection = new DataSource({
   logging: false,
   entities: ['src/**/*.entity{.ts,.js}'],
   subscribers: [],
-  migrations: []
+  migrations: [],
+  ssl: true
 })
 
 export const createConnection = () => {
   Connection.initialize()
     .then(() => console.log('Khoi tao thanh cong'))
     .catch((e) => {
-      console.log('Khoi tao that bai')
+      console.log('Khoi tao that bai', e)
     })
 }
