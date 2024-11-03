@@ -15,7 +15,7 @@ export const Connection = new DataSource({
   entities: ['src/**/*.entity{.ts,.js}'],
   subscribers: [],
   migrations: [],
-  ssl: true
+  ssl: false
 })
 
 export const createConnection = () => {

@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 3
+    },
+    "auditLog": "C:\\Users\\Admin\\Desktop\\jobB\\nodejs_typescript\\logs\\.ab08157e07019445a6398c211763a20b615f1b41-audit.json",
+    "files": [
+        {
+            "date": 1730607396787,
+            "name": "C:\\Users\\Admin\\Desktop\\jobB\\nodejs_typescript\\logs\\logs-2024-11-03.log",
+            "hash": "095ce2d8eee11fe349478850af6d0d87049e742456cd911f885cab6282c33fba"
+        }
+    ],
+    "hashType": "sha256"
+}

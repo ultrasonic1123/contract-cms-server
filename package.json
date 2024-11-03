@@ -1,3 +1,4 @@
+-- Active: 1729787377736@@127.0.0.1@5432@doantotnghiep
 {
   "name": "base-ts",
   "version": "1.0.0",
@@ -11,7 +12,8 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "prettier": "prettier --check .",
-    "prettier:fix": "prettier --write ."
+    "prettier:fix": "prettier --write .",
+    "seed": "ts-node src/seed.ts"
   },
   "keywords": [],
   "author": "",

@@ -1,3 +1,4 @@
 node_modules/
 dist/
-logs
+docker/database/postgres/data/
+docker/database/postgres/logs/
