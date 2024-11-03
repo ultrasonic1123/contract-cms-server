@@ -42,18 +42,21 @@ class UserService {
     if (!user.comparePassword(password)) throw new BadRequest({ message: 'Tên đăng nhập hoặc mật khẩu không đúng' })
     if (!user.active) throw new BadRequest({ message: 'Người dùng chưa kích hoạt!' })
 
+    const token = await this.generateToken(user)
+
     return {
       ...user,
-      ...this.generateToken(user)
+      ...token
     }
   }
 
   async generateToken(user: User) {
-    const token = jwt.sign(user.username, envConfig.JWT_SECRET, { expiresIn: '30d' })
-    const rfToken = jwt.sign(user.username, envConfig.JWT_RT_SECRET, { expiresIn: '30d' })
+    const token = jwt.sign({ sub: user.id }, envConfig.JWT_SECRET, { expiresIn: '30d' })
+    const rfToken = jwt.sign({ sub: user.id }, envConfig.JWT_RT_SECRET, { expiresIn: '30d' })
+
     return {
-      access_token: token,
-      refresh_token: rfToken
+      accessToken: token,
+      refreshToken: rfToken
     }
   }
 }
