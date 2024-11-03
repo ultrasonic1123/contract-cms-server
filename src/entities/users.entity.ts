@@ -7,25 +7,26 @@ import * as bcrypt from 'bcrypt'
 
 @Entity()
 export class User extends AbstractEntity {
-  @Column({ nullable: true })
-  username!: string
+  @Column({})
+  username: string
 
   @Column()
-  @Exclude()
-  password!: string
+  fullname: string
+
+  @Column()
+  password: string
 
   @Column({ unique: true })
-  @Exclude()
-  email!: string
+  email: string
 
   @Column({ nullable: true })
-  avatar!: string
+  avatar: string
 
-  @Column({ default: '500000' })
-  coin!: string
+  @Column({ type: 'enum', enum: ERole })
+  role: ERole
 
-  @Column({ nullable: false, type: 'enum', enum: ERole, default: ERole.Guest })
-  role!: ERole
+  @Column({ default: true })
+  active: boolean
 
   setPassword(password: string) {
     this.password = bcrypt.hashSync(password, 10)

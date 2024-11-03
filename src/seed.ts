@@ -1,9 +1,13 @@
 import { Connection } from '@/configs/db.config'
 import { Service } from './entities/service.entity'
 import { Job } from './entities/job.entity'
+import { User } from './entities/users.entity'
+import { ERole } from './enums/role.enum'
 
-async function seed() {
-  await Connection.initialize()
+export async function seed() {
+  const count = await Connection.getRepository(Service).count()
+
+  if (count) return
   const servicesData = [
     {
       name: 'Thiết kế công trình, hệ thống liên quan',
@@ -120,7 +124,28 @@ async function seed() {
   }
 
   console.log('Dữ liệu đã được khởi tạo thành công!')
-  await Connection.destroy()
+  // await Connection.destroy()
 }
 
-seed().catch((error) => console.log(error))
+export async function seedUser() {
+  const data: Array<Partial<User>> = [
+    {
+      username: 'admin',
+      fullname: 'admin',
+      role: ERole.SuperAdmin,
+      active: true,
+      email: 'admin@admin.com',
+      password: '123123'
+    }
+  ]
+
+  const count = await Connection.getRepository(User).count()
+
+  if (count) return
+
+  for (const user of data) {
+    const t = Connection.getRepository(User).create(user)
+    t.setPassword(user.password)
+    await t.save()
+  }
+}

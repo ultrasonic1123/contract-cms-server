@@ -1,4 +1,5 @@
 export enum ERole {
-  SuperAdmin,
-  Guest
+  SuperAdmin = 'Super Admin',
+  Sale = 'Nhân viên Kinh doanh',
+  Director = 'Ban giám đốc'
 }

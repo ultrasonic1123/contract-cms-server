@@ -1,11 +1,10 @@
 import { Request, Response, Router } from 'express'
 import UserController from '@/controllers/user.controller'
-import validationMiddleware from '@/middlewares/validation.middleware'
-import { ListUser } from '@/dtos/user.dto'
 
 const userController = new UserController()
 const router: Router = Router()
 
-router.get('/', validationMiddleware(ListUser), userController.loggingIn)
+router.post('/', userController.create)
+router.put('/', userController.update)
 
 export default router

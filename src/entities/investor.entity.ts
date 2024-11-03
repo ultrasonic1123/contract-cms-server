@@ -1,11 +1,9 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm'
 import { Project } from './project.entity'
+import { AbstractEntity } from './base.entity'
 
 @Entity()
-export class Investor {
-  @PrimaryGeneratedColumn()
-  id: number
-
+export class Investor extends AbstractEntity {
   @Column()
   name: string
 

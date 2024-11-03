@@ -1,7 +1,6 @@
 import { DataSource } from 'typeorm'
 import { envConfig } from './env.config'
-
-console.log(__dirname)
+import { seed, seedUser } from '@/seed'
 
 export const Connection = new DataSource({
   type: 'postgres',
@@ -21,6 +20,9 @@ export const Connection = new DataSource({
 export const createConnection = () => {
   Connection.initialize()
     .then(() => console.log('Khoi tao thanh cong'))
+    .then(() => {
+      Promise.all([seed(), seedUser()]).then(() => console.log('seed done'))
+    })
     .catch((e) => {
       console.log('Khoi tao that bai', e)
     })

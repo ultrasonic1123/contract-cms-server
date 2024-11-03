@@ -13,6 +13,24 @@ class UserController {
       return next(new BadRequest({ message: e.message }))
     }
   }
+
+  async create(request: Request, response: Response, next: NextFunction) {
+    try {
+      const data = userService.create(request.body)
+      response.customSuccess(200, data)
+    } catch (e) {
+      return next(new BadRequest({ message: e.message }))
+    }
+  }
+
+  async update(request: Request, response: Response, next: NextFunction) {
+    try {
+      const data = userService.update(request.body)
+      response.customSuccess(200, data)
+    } catch (e) {
+      return next(new BadRequest({ message: e.message }))
+    }
+  }
 }
 
 export default UserController

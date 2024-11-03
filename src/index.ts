@@ -27,7 +27,6 @@ app.use(bodyParser.urlencoded({ limit: '50mb', extended: false }))
 app.use(morganMiddleware)
 app.use('/api', routes)
 app.use(exceptionFilter)
-
 createConnection()
 
 app.listen(port, () => {

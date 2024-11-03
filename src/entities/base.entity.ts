@@ -2,11 +2,11 @@ import { PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, BaseEntity 
 
 export abstract class AbstractEntity extends BaseEntity {
   @PrimaryGeneratedColumn()
-  id!: number
+  id: number
 
   @CreateDateColumn({ type: 'timestamptz' })
-  createdAt!: Date
+  createdAt: Date
 
   @UpdateDateColumn({ type: 'timestamptz' })
-  updatedAt!: Date
+  updatedAt: Date
 }
