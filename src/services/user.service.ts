@@ -15,11 +15,13 @@ class UserService {
   }
 
   async create(payload: any) {
-    const newUser = {
+    const newUser: User = {
       ...payload,
       role: payload.role === 'employee' ? ERole.Sale : payload.role === 'director' ? ERole.Director : ERole.SuperAdmin
     }
-    return Connection.getRepository(User).save(newUser)
+    const temp = Connection.getRepository(User).create(newUser)
+    temp.setPassword(payload.password)
+    return temp.save()
   }
 
   async update(payload: any) {
