@@ -3,7 +3,7 @@ import { AbstractEntity } from './base.entity'
 import { Exclude } from 'class-transformer'
 import { ERole } from '@/enums/role.enum'
 
-import * as bcrypt from 'bcrypt'
+import * as bcrypt from 'bcryptjs'
 
 @Entity()
 export class User extends AbstractEntity {
