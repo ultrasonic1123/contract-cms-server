@@ -2,6 +2,7 @@ import { Connection } from '@/configs/db.config'
 import { envConfig } from '@/configs/env.config'
 import { ListDto } from '@/dtos/base.dto'
 import { User } from '@/entities/users.entity'
+import { ERole } from '@/enums/role.enum'
 import BadRequest from '@/middlewares/exception/BadRequest'
 import { BaseService } from '@/utils/baseService'
 import { PaginateConfig } from '@/utils/paginate'
@@ -14,7 +15,11 @@ class UserService {
   }
 
   async create(payload: any) {
-    return Connection.getRepository(User).save(payload)
+    const newUser = {
+      ...payload,
+      role: payload.role === 'employee' ? ERole.Sale : payload.role === 'director' ? ERole.Director : ERole.SuperAdmin
+    }
+    return Connection.getRepository(User).save(newUser)
   }
 
   async update(payload: any) {

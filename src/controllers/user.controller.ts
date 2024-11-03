@@ -4,11 +4,10 @@ import Container from 'typedi'
 import { userService } from '@/services/user.service'
 
 class UserController {
-  async loggingIn(request: Request, response: Response, next: NextFunction) {
+  async list(request: Request, response: Response, next: NextFunction) {
     try {
-      const data = userService.getAll()
-
-      response.customSuccess(200, {})
+      const data = await userService.getAll()
+      response.customSuccess(200, data)
     } catch (e) {
       return next(new BadRequest({ message: e.message }))
     }
